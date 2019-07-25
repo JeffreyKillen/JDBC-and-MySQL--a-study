@@ -1,9 +1,12 @@
-package jdbcstudy;
-
-/**
- *
- * @author Jeffrey
+/*
+ * FileName: JdbcStudy.java
+ * Author: Jeffrey Killen
+ * Date Created: 7/25/19
+ * Last Modified:
+ * Purpose: A driver class for testing JDBC, Java and MySQL
  */
+
+package jdbcstudy;
 
 import java.sql.*;
 
