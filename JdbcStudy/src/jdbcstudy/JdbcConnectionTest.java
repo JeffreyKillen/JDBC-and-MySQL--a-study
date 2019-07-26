@@ -43,6 +43,11 @@ public class JdbcConnectionTest {
     
     public Connection getConnection() throws SQLException {
         
+        /*
+         * This method attempts to connect to an SQL database and returns the
+         * Connection object if successful
+        */
+        
         Connection con = null;
         Properties connectionProps = new Properties();
         connectionProps.put("user", this.userName);

@@ -18,15 +18,16 @@ public class JdbcStudy {
     public static void main(String[] args) {
         
         JdbcConnectionTest ct = new JdbcConnectionTest("root", "password", "ebookshop");
+        Connection con;
         
         try {
             
-            ct.getConnection();
+            con = ct.getConnection();
+            printSQLException.getWarningsFromConnection(con);
         
         } catch(SQLException sqlEx) {
             
-            System.out.println("Something bad happened.");
-            sqlEx.printStackTrace();
+            printSQLException.printSQLException(sqlEx);
             
         } // end of try/catch
         
