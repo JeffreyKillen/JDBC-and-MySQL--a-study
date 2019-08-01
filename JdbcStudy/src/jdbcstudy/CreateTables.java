@@ -83,6 +83,8 @@ public class CreateTables {
         
     } // end of public static String createTableMerch() throws SQLException {
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     public static String createTableHouses() {
         
         String createString = "create table ebookshop.COFFEE_HOUSES " +
@@ -96,6 +98,8 @@ public class CreateTables {
         return createString;               
         
     } // end of public static String createTableHouses() throws SQLException {
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static void populateTableSuppliers(Statement stmt) throws SQLException {
                 
@@ -121,5 +125,35 @@ public class CreateTables {
         
         
     } // end of public void String populateTableSuppliers() {
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public static void populateTableCoffees(Statement stmt) throws SQLException {
+        
+        /*stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('?', " +
+                "?, ?, ?, ?)");*/
+        
+        stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('Colombian', " +
+                "101, 7.99, 0, 0)");
+        
+        stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('French_Roast', " +
+                "49, 8.99, 0, 0)");
+        
+        stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('Espresso', " +
+                "150, 9.99, 0, 0)");
+        
+        stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('Colombian_Decaf', " +
+                "101, 8.99, 0, 0)");
+        
+        stmt.executeUpdate("insert into ebookshop.COFFEES " +
+                "values('French_Roast_Decaf', " +
+                "49, 9.99, 0, 0)");
+        
+    } // end of public static void populateTableCoffees(Statement stmt) throws SQLException {
     
 } // end of class

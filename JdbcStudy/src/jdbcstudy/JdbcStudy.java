@@ -28,8 +28,22 @@ public class JdbcStudy {
             
             stmt = con.createStatement();
             
-            CreateTables.populateTableSuppliers(stmt);
+            //////Create Tables/////
+            //stmt.executeUpdate(CreateTables.createTableSuppliers());
+            //stmt.executeUpdate(CreateTables.createTableCoffees());
+            //stmt.executeUpdate(CreateTables.createTableMerch());
+            //stmt.executeUpdate(CreateTables.createTableHouses());
+            //stmt.executeUpdate(CreateTables.createTableInventory());
             
+            /////Populate Tables/////
+            CreateTables.populateTableSuppliers(stmt);
+            CreateTables.populateTableCoffees(stmt);
+            
+            /////Delete Table Values/////                        
+            stmt.executeUpdate("delete from COFFEES;");
+            stmt.executeUpdate("delete from SUPPLIERS;");
+            
+            /////Clean up/////
             stmt.close();
         
         } catch(SQLException sqlEx) {
