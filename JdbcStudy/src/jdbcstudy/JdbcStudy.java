@@ -27,11 +27,8 @@ public class JdbcStudy {
             printSQLException.getWarningsFromConnection(con);
             
             stmt = con.createStatement();
-            //stmt.executeUpdate(CreateTables.createTableSuppliers());
-            /////////stmt.executeUpdate(CreateTables.createTableCoffees());
-            /////////stmt.executeUpdate(CreateTables.createTableInventory());
             
-            stmt.executeUpdate(CreateTables.populateTableSuppliers());
+            CreateTables.populateTableSuppliers(stmt);
             
             stmt.close();
         

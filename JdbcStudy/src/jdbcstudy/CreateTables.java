@@ -8,6 +8,8 @@
  */
 package jdbcstudy;
 
+import java.sql.*;
+
 public class CreateTables {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,16 +97,29 @@ public class CreateTables {
         
     } // end of public static String createTableHouses() throws SQLException {
 
-    public static String populateTableSuppliers() {
+    public static void populateTableSuppliers(Statement stmt) throws SQLException {
+                
+        /*stmt.executeUpdate("insert into ebookshop.SUPPLIERS " +
+                "values(?, '?', " +
+                "'?', " +
+                "'?', '?', '?')");*/
         
-        StringBuilder sb = new StringBuilder();
+        stmt.executeUpdate("insert into ebookshop.SUPPLIERS " +
+                "values(49, 'Superior Coffee', " +
+                "'1 Party Place', " +
+                "'Mendocino', 'CA', '95460')");
         
-        sb.append("insert into ebookshop.SUPPLIERS values(49, 'Superior Coffee', '1 Party Place', 'Mendocino', 'CA', '95460');");
-        sb.append("insert into ebookshop.SUPPLIERS values(101, 'Acme, Inc.', '99 Market Street', 'Groundsville', 'CA', '95199');");
-        sb.append("insert into ebookshop.SUPPLIERS values(150, 'The High Ground' '100 Coffee Lane', 'Meadows', 'CA', '93966');");
+        stmt.executeUpdate("insert into ebookshop.SUPPLIERS " +
+                "values(101, 'Acme, Inc.', " +
+                "'99 Market Street', " +
+                "'Groundsville', 'CA', '95199')");
         
-        return sb.toString();
+        stmt.executeUpdate("insert into ebookshop.SUPPLIERS " +
+                "values(150, 'The High Ground', " +
+                "'100 Coffee Lane', " +
+                "'Meadows', 'CA', '93966')");
         
-    } // end of public static String populateTableSuppliers() {
+        
+    } // end of public void String populateTableSuppliers() {
     
 } // end of class
