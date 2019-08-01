@@ -19,11 +19,21 @@ public class JdbcStudy {
         
         JdbcConnectionTest ct = new JdbcConnectionTest("root", "password", "ebookshop");
         Connection con;
+        Statement stmt = null;
         
         try {
             
             con = ct.getConnection();
             printSQLException.getWarningsFromConnection(con);
+            
+            stmt = con.createStatement();
+            //stmt.executeUpdate(CreateTables.createTableSuppliers());
+            /////////stmt.executeUpdate(CreateTables.createTableCoffees());
+            /////////stmt.executeUpdate(CreateTables.createTableInventory());
+            
+            stmt.executeUpdate(CreateTables.populateTableSuppliers());
+            
+            stmt.close();
         
         } catch(SQLException sqlEx) {
             
