@@ -24,7 +24,7 @@ public class JdbcStudy {
         try {
             
             con = ct.getConnection();
-            printSQLException.getWarningsFromConnection(con);
+            PrintSQLException.getWarningsFromConnection(con);
             
             stmt = con.createStatement();
             
@@ -39,6 +39,26 @@ public class JdbcStudy {
             CreateTables.populateTableSuppliers(stmt);
             CreateTables.populateTableCoffees(stmt);
             
+            /////Query Database/////
+            String query = "select COF_NAME, SUP_ID, PRICE, " +
+                    "SALES, TOTAL " +
+                    "from ebookshop.COFFEES";
+            
+            ResultSet rs = stmt.executeQuery(query);
+            
+            while(rs.next()) {
+                
+                String coffeeName = rs.getString("COF_NAME");
+                int supplierID = rs.getInt("SUP_ID");
+                float price = rs.getFloat("PRICE");
+                int sales = rs.getInt("SALES");
+                int total = rs.getInt("TOTAL");
+                System.out.println(coffeeName + "\t" + supplierID +
+                        "\t" + price + "\t" + sales +
+                        "\t" + total);
+                
+            } // end of while(rs.net()) {
+            
             /////Delete Table Values/////                        
             stmt.executeUpdate("delete from COFFEES;");
             stmt.executeUpdate("delete from SUPPLIERS;");
@@ -48,7 +68,7 @@ public class JdbcStudy {
         
         } catch(SQLException sqlEx) {
             
-            printSQLException.printSQLException(sqlEx);
+            PrintSQLException.printSQLException(sqlEx);
             
         } // end of try/catch
         

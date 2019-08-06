@@ -1,5 +1,5 @@
 /*
- * FileName: printSQLException.java
+ * FileName: PrintSQLException.java
  * Author: Jeffrey Killen, referenced from docs.oracle.com
  * Date Created: 7/26/19
  * Last Modified:
@@ -11,7 +11,7 @@ package jdbcstudy;
 
 import java.sql.*;
 
-public class printSQLException {
+public class PrintSQLException {
     
     //////////////////////////////////////////////////////////////////////////////////
     
@@ -51,7 +51,7 @@ public class printSQLException {
             
         } // end of for(Throwable e : ex) {
         
-    } // end of public static void printSQLException(SQLException ex) {
+    } // end of public static void PrintSQLException(SQLException ex) {
     
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -97,7 +97,7 @@ public class printSQLException {
          * to the printWarnings() method.
         */
         
-        printSQLException.printWarnings(rs.getWarnings());
+        PrintSQLException.printWarnings(rs.getWarnings());
         
     } // end of public static void getWarninsFromResultSet(ResultSet rs) throws SQLException {
     
@@ -110,7 +110,7 @@ public class printSQLException {
          * the printWarningsd() method.
         */
         
-        printSQLException.printWarnings(con.getWarnings());
+        PrintSQLException.printWarnings(con.getWarnings());
         
     } // end of public static void getWarningsFromConnection(Connection con) throws SQLException {
     
