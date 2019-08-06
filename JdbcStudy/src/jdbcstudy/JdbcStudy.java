@@ -9,6 +9,7 @@
 package jdbcstudy;
 
 import java.sql.*;
+import java.sql.DatabaseMetaData;
 
 public class JdbcStudy {
 
@@ -58,6 +59,28 @@ public class JdbcStudy {
                         "\t" + total);
                 
             } // end of while(rs.net()) {
+            
+            //Test for ResultSet types
+            DatabaseMetaData md = con.getMetaData();
+            
+            System.out.println("");
+            if(md.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+                System.out.println("This setup supports Type Forward!");
+            } else {
+                System.out.println("Type Forward not supported!");
+            } // end of if/else {
+            
+            if(md.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
+                System.out.println("This setup supports Scroll Insensitive");
+            } else {
+                System.out.println("Scroll Insensitive not supported!");
+            } // end of if/else {
+            
+            if(md.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
+                System.out.println("This setup supports Scroll Sensitive");
+            } else {
+                System.out.println("Scroll Sensitive not supported!");
+            } // end of if/else {
             
             /////Delete Table Values/////                        
             stmt.executeUpdate("delete from COFFEES;");
